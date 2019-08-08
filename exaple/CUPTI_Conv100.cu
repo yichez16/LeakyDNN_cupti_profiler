@@ -12,7 +12,7 @@
 #include "device_launch_parameters.h"
 #include <stdlib.h>
 
-const char *path_0 = "/home/yichez/cupti_profiler/Experiment/conv100.csv";
+const char *path_0 = "conv100.csv";
 #define N 100 //Default matrix size NxN
 #define A(i,j) A[(i)*cols+(j)]  // row-major layout
 #define C(i,j) C[(i)*cols+(j)]  // row-major layout

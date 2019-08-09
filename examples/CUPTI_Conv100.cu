@@ -150,11 +150,11 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
     // "inst_executed",
 
 
-    "fb_subp1_write_sectors",
-    "fb_subp0_read_sectors",
-    "l2_subp0_write_sector_misses",
-    "l2_subp1_read_sector_misses",
-    "branch",
+    //"fb_subp1_write_sectors",
+    //"fb_subp0_read_sectors",
+    //"l2_subp0_write_sector_misses",
+    //"l2_subp1_read_sector_misses",
+    //"branch",
 
     // "gld_inst_8bit",
 
@@ -185,10 +185,10 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
                     
   };
   vector<string> metric_names {
-                    // "dram_read_transactions",
-                    // //"local_hit_rate",
-                    // "dram_write_transactions",
-                    //"inst_executed",
+                    "dram_read_transactions",
+                    "local_hit_rate",
+                     "dram_write_transactions",
+                    "inst_executed",
                     //"stall_memory_dependency",      //*This metrics will cause profiler to be very slow*//
                     //"stall_inst_fetch",            //*This metrics will cause profiler to be very slow*//
                     //"cf_issued",

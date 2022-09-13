@@ -543,8 +543,8 @@ namespace detail {
     void print_event_values(stream& s,
                             timeval ts,
                             timeval te,
-                            bool print_names=true,
-                            const char* kernel_separator = "; ") {
+                            bool print_names=false,
+                            const char* kernel_separator = "") {
       using ull_t = unsigned long long;
 
       for(auto const& k: m_kernel_data) {
@@ -573,7 +573,7 @@ namespace detail {
               << ") ";
           else
             s << (ull_t)m_kernel_data[k.first].m_event_values[i]
-              << " ";
+              << ",";
         }
         s << kernel_separator;
       }
@@ -584,8 +584,8 @@ namespace detail {
     void print_metric_values(stream& s,
                             timeval ts,
                             timeval te,
-                             bool print_names=true,
-                             const char* kernel_separator = "; ") {
+                             bool print_names=false,
+                             const char* kernel_separator = "") {
       if(m_num_metrics <= 0)
         return;
 
@@ -609,7 +609,7 @@ namespace detail {
               << "," << ts.tv_sec*1000000 + ts.tv_usec
               << "," << te.tv_sec*1000000 + te.tv_usec
               << ") ";
-          else s << " ";
+          else s << ",";
         }
         s << kernel_separator;
       }

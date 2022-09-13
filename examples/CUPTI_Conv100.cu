@@ -98,7 +98,7 @@ cudaMalloc((void**)&C_d, sizeof(*C_d)*memorySize);
 cudaMemcpy(A_d, A, sizeof(*A_d)*memorySize, cudaMemcpyHostToDevice);
 
 // cudaEventRecord(start);
-convolution << <4, 128 >> >(A_d, C_d);//Block-thread
+convolution << <128, 128 >> >(A_d, C_d);//Block-thread
 // cudaEventRecord(stop);
 // cudaEventSynchronize(stop);
 
@@ -150,8 +150,8 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
     // "inst_executed",
 
 
-    "fb_subp0_read_sectors",
-    "elapsed_cycles_pm",
+    // "fb_subp0_read_sectors",
+    // "elapsed_cycles_pm",
     //"l2_subp0_write_sector_misses",
     //"l2_subp1_read_sector_misses",
     //"branch",
@@ -187,7 +187,7 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
   vector<string> metric_names {
                     "dram_read_transactions",
                     "local_hit_rate",
-                     "dram_write_transactions",
+                    "dram_write_transactions",
                     "inst_executed",
                     //"stall_memory_dependency",      //*This metrics will cause profiler to be very slow*//
                     //"stall_inst_fetch",            //*This metrics will cause profiler to be very slow*//
@@ -218,6 +218,7 @@ for(int j=0;j<counter1;j++)
 
   p->print_event_values(std::cout,ts,te);
   p->print_metric_values(std::cout,ts,te);
+
   free(p);
 }
 

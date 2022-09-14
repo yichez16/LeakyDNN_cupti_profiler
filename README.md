@@ -9,8 +9,8 @@ The CUDA version is V9.0.176 and the cuDNN version is 7.4.2.
 The workstation has installed Ubuntu 16.04 and we use Tensorflow 1.12.0.
 
 ## Extract GPU performance counters
-To run it, you just need to type make and ./CUPTI_Conv.
-To add more performance counters, you just need to add the names of counters into [lines 149 to 207][lines].
+To run it, you just need to type sh run_spykernel.sh.
+To add more performance counters, you just need to add the names of metrics in CUPTI_Conv_Metrics.cu or event in CUPTI_Conv_Event.cu.
 
 ## Citation
 

@@ -10,7 +10,8 @@ The workstation has installed Ubuntu 16.04 and we use Tensorflow 1.12.0.
 
 ## Extract GPU performance counters
 To run it, you just need to type sh run_spykernel.sh.
-To add more performance counters, you just need to add the names of metrics in CUPTI_Conv_Metrics.cu or event in CUPTI_Conv_Event.cu.
+To add more performance counters, you just need to add the names of metrics in CUPTI_Conv_Metrics.cu or event in CUPTI_Conv_Event.cu. 
+The GPU performance counters will be stored into conv_metrics.csv and conv_event.csv.
 
 ## Citation
 

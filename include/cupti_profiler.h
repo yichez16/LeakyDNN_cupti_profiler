@@ -618,8 +618,8 @@ namespace detail {
 
     template<typename stream>
     void print_events_and_metrics(stream& s,
-                                  bool print_names = true,
-                                  const char* kernel_separator = "; ") {
+                                  bool print_names = false,
+                                  const char* kernel_separator = "") {
       if(m_num_events <= 0 && m_num_metrics <= 0)
         return;
 
@@ -638,7 +638,7 @@ namespace detail {
               << ") ";
           else
             s << (ull_t)m_kernel_data[k.first].m_event_values[i]
-              << " ";
+              << ",";
         }
 
         for(int i = 0; i < m_num_metrics; ++i) {
@@ -651,7 +651,7 @@ namespace detail {
             s);
 
           if(print_names) s << ") ";
-          else s << " ";
+          else s << ",";
         }
 
         s << kernel_separator;

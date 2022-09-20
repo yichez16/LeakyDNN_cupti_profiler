@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 const char *path_0 = "conv_metrics.csv";
-#define N 100 //Default matrix size NxN
+#define N 128 //Default matrix size NxN
 #define A(i,j) A[(i)*cols+(j)]  // row-major layout
 #define C(i,j) C[(i)*cols+(j)]  // row-major layout
 #define PROFILE_ALL_EVENTS_METRICS 0
@@ -136,67 +136,17 @@ DRIVER_API_CALL(cuInit(0));
 DRIVER_API_CALL(cuDeviceGet(&device, 0));
 
 #if PROFILE_ALL_EVENTS_METRICS
-  const auto event_names = cupt 
-  i_profiler::available_events(device);
-  const auto metric_names = cupti_profiler::available_metrics(device);
+const auto event_names = cupti_profiler::available_events(device);
+const auto metric_names = cupti_profiler::available_metrics(device);
 #else
-  vector<string> event_names {
-    //"elapsed_cycles_sm",
-
-    // "active_warps",
-
-    // "inst_issued0",
-
-    // "inst_executed",
-
-    // "fb_subp0_write_sectors",
-    // "fb_subp1_read_sectors",
-    // "elapsed_cycles_pm",
-    // "l2_subp0_write_sector_misses",
-    // "l2_subp1_read_sector_misses",
-    // "branch",
-
-    // "gld_inst_8bit",
-
-    //"elapsed_cycles_sm",
-    // "tex0_cache_sector_queries",
-    // "tex1_cache_sector_queries",
-
-
-    // "l2_subp0_read_tex_sector_queries",
-
-    // "l2_subp1_write_tex_sector_queries",
-  
-    // "active_warps",
-
-    // "elapsed_cycles_sm",
-
-    // "l2_subp1_write_sysmem_sector_queries",
-    // "l2_subp0_read_sysmem_sector_queries",
-
- 
-    
-
-    // "inst_executed",
-
-    // "inst_issued0",
-
-    // "branch",
-
-                    
+  vector<string> event_names {                   
   };
   vector<string> metric_names {
-                    "dram_read_transactions",
-                    "local_hit_rate",
-                    "dram_write_transactions",
-                    "inst_executed",
-                    //"stall_memory_dependency",      //*This metrics will cause profiler to be very slow*//
-                    //"stall_inst_fetch",            //*This metrics will cause profiler to be very slow*//
-                    "cf_issued",
-                    "tex_fu_utilization",
-                    "l2_write_transactions",
-                    "shared_store_transactions",
-                    // "tex_cache_transactions",
+"l2_read_transactions",
+// "l2_write_transactions",  // error
+"dram_read_transactions",
+"dram_write_transactions",
+
                     
   };
 

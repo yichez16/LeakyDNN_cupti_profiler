@@ -19,6 +19,7 @@ const char *path_0 = "conv_event.csv";
 #define PROFILE_ALL_EVENTS_METRICS 0
 int counter1 = 200000;
 
+
 __global__ void convolution(int *A, int *C)
 {
 	//Filter
@@ -130,6 +131,8 @@ int main()
 
 using namespace std;
 CUdevice device;
+// cudaSetDevice (device_id);
+
 
 DRIVER_API_CALL(cuInit(0));
 DRIVER_API_CALL(cuDeviceGet(&device, 0));
@@ -140,13 +143,13 @@ const auto metric_names = cupti_profiler::available_metrics(device);
 #else
   vector<string> event_names {
     "fb_subp0_read_sectors",
-    "fb_subp1_read_sectors",
-    "fb_subp0_write_sectors",
-    "fb_subp1_write_sectors",
-    "l2_subp0_read_sector_misses",
-    "l2_subp1_read_sector_misses",
-    "l2_subp0_write_sector_misses",
-    "l2_subp1_write_sector_misses"
+    // "fb_subp1_read_sectors",
+    // "fb_subp0_write_sectors",
+    // "fb_subp1_write_sectors",
+    // "l2_subp0_read_sector_misses",
+    // "l2_subp1_read_sector_misses",
+    // "l2_subp0_write_sector_misses",
+    // "l2_subp1_write_sector_misses"
 
 
 
@@ -188,3 +191,4 @@ for(int j=0;j<counter1;j++)
 // fclose(stdout);
 return 0;
 }
+

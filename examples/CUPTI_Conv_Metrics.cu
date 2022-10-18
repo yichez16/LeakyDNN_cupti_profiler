@@ -127,7 +127,7 @@ free(C);
 
 int main()  
 {
-// freopen(path_0,"w",stdout);
+freopen(path_0,"w",stdout);
 
 using namespace std;
 CUdevice device;
@@ -142,10 +142,29 @@ const auto metric_names = cupti_profiler::available_metrics(device);
   vector<string> event_names {                   
   };
   vector<string> metric_names {
-"l2_read_transactions",
+//"l2_read_transactions",// works
+//"nvlink_data_receive_efficiency",
+// "nvlink_data_transmission_efficiency",
+//"nvlink_overhead_data_received",
+//"nvlink_overhead_data_transmitted",
+//"nvlink_receive_throughput",
+ "nvlink_total_data_received",// works
+ "nvlink_total_data_transmitted",// works
+ "nvlink_total_nratom_data_transmitted" , // works
+// "nvlink_total_ratom_data_transmitted" ,
+ "nvlink_total_response_data_received" ,// works
+// "nvlink_total_write_data_transmitted",
+ "nvlink_transmit_throughput", //works
+// "nvlink_user_data_received",
+// "nvlink_user_data_transmitted",
+// "nvlink_user_nratom_data_transmitted" ,
+// "nvlink_user_ratom_data_transmitted",
+// "nvlink_user_response_data_received",
+// "nvlink_user_write_data_transmitted",
+
 // "l2_write_transactions",  // error
-"dram_read_transactions",
-"dram_write_transactions",
+//"dram_read_transactions",
+//"dram_write_transactions",
 
                     
   };
@@ -177,6 +196,6 @@ for(int j=0;j<counter1;j++)
 
 
   
-// fclose(stdout);
+fclose(stdout);
 return 0;
 }

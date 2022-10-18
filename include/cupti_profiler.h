@@ -1,4 +1,4 @@
-// #pragma once
+#pragma once
 
 #include <vector>
 #include <map>
@@ -573,7 +573,7 @@ namespace detail {
               << ") ";
           else
             s << (ull_t)m_kernel_data[k.first].m_event_values[i]
-              << ",";
+              << ","
               << ts.tv_sec*1000000 + ts.tv_usec
               << "," << te.tv_sec*1000000 + te.tv_usec
               << ",";

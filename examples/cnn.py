@@ -10,7 +10,7 @@ import os
 import time
 
 # Set GPU 2 to be visible only
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
+os.environ["CUDA_VISIBLE_DEVICES"]="1,2,3"
 
 # prepare datasets
 t = time.time()
@@ -60,7 +60,7 @@ print("-------------------------------------------------------")
 #  train model on GPU 1
 
 try:
-  with tf.device('/gpu:2'):
+
     model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy']

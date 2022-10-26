@@ -14,7 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="2"
 
 # prepare datasets
 t = time.time()
-t_ms = int(t * 1000)
+t_ms = int(t * 1000000)
 print("prepare datasets: ", t_ms)
 print("-------------------------------------------------------")
 
@@ -53,7 +53,7 @@ model.summary()
 
 
 t = time.time()
-t_ms = int(t * 1000)
+t_ms = int(t * 1000000)
 print("start training: ", t_ms)
 print("-------------------------------------------------------")
 
@@ -76,5 +76,7 @@ try:
 except RuntimeError as e:
   print(e)
 
+t = time.time()
+t_ms = int(t * 1000000)
 print("end training: ", t_ms)
 print("-------------------------------------------------------")

@@ -136,8 +136,7 @@ DRIVER_API_CALL(cuInit(0));
 DRIVER_API_CALL(cuDeviceGet(&device, 0));
 
 #if PROFILE_ALL_EVENTS_METRICS
-  const auto event_names = cupt 
-  i_profiler::available_events(device);
+  const auto event_names = cupti_profiler::available_events(device);
   const auto metric_names = cupti_profiler::available_metrics(device);
 #else
   vector<string> event_names {
